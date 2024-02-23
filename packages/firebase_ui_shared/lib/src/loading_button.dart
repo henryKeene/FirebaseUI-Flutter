@@ -110,7 +110,7 @@ class LoadingButton extends StatelessWidget {
       contentColor = contentColor ?? CupertinoColors.white;
     }
 
-    if (isMaterial3 && variant == ButtonVariant.filled) {
+    if (variant == ButtonVariant.filled) {
       contentColor = theme.textTheme.bodyMedium?.color ?? contentColor;
     }
 
