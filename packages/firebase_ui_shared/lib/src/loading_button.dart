@@ -111,7 +111,7 @@ class LoadingButton extends StatelessWidget {
     }
 
     if (variant == ButtonVariant.filled) {
-      contentColor = theme.textTheme.bodyMedium?.color ?? contentColor;
+      contentColor = Colors.black;
     }
 
     final content = _LoadingButtonContent(
