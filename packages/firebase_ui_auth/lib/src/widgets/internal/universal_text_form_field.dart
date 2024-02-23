@@ -96,6 +96,7 @@ class UniversalTextFormField extends PlatformWidget {
       autofocus: autofocus,
       focusNode: focusNode,
       controller: controller,
+      style: Theme.of(context).textTheme.bodyMedium,
       decoration: InputDecoration(
         labelText: placeholder,
         prefix: prefix,
