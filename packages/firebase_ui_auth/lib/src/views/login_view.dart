@@ -183,6 +183,7 @@ class _LoginViewState extends State<LoginView> {
                 text: actionText,
                 style: Theme.of(context).textTheme.labelLarge?.copyWith(
                       color: registerTextColor,
+                      fontSize: 14,
                     ),
                 mouseCursor: SystemMouseCursors.click,
                 recognizer: TapGestureRecognizer()
