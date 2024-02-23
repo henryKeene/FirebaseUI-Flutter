@@ -5,8 +5,8 @@ repository: https://github.com/firebase/FirebaseUI-Flutter/tree/master/packages/
 homepage: https://github.com/firebase/FirebaseUI-Flutter/tree/master/packages/firebase_ui_auth
 
 environment:
-  sdk: ">=2.18.0 <4.0.0"
-  flutter: ">=3.3.0"
+  sdk: '>=2.18.0 <4.0.0'
+  flutter: '>=3.3.0'
 
 dependencies:
   email_validator: ^2.1.17
@@ -14,7 +14,8 @@ dependencies:
   firebase_core: ^2.25.4
   firebase_dynamic_links: ^5.4.14
   firebase_ui_localizations: ^1.10.2
-  firebase_ui_oauth: ^1.5.0
+  firebase_ui_oauth:
+    path: ../firebase_ui_oauth
   firebase_ui_shared: ^1.4.1
   flutter:
     sdk: flutter
@@ -29,9 +30,9 @@ dev_dependencies:
   mockito: ^5.4.4
 
 false_secrets:
-  - "/example/**/google-services.json"
-  - "/example/**/firebase_options.dart"
-  - "/example/**/GoogleService-Info.plist"
-  - "example/lib/config.dart"
+  - '/example/**/google-services.json'
+  - '/example/**/firebase_options.dart'
+  - '/example/**/GoogleService-Info.plist'
+  - 'example/lib/config.dart'
 
 flutter:
