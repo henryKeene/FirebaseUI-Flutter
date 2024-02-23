@@ -14,7 +14,10 @@ dependencies:
     git:
       url: https://github.com/henryKeene/FirebaseUI-Flutter
       path: packages/firebase_ui_auth
-  firebase_ui_shared: ^1.4.1
+  firebase_ui_shared:
+    git:
+      url: https://github.com/henryKeene/FirebaseUI-Flutter
+      path: packages/firebase_ui_shared
   flutter_svg: ^2.0.9
   flutter:
     sdk: flutter
