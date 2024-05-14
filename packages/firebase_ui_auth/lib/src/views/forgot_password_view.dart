@@ -70,8 +70,8 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
 
       final json = remoteConfig.getString('environments');
       final envs = jsonDecode(json) as Map<String, dynamic>;
-
-      final url = envs['baseUrl'];
+      final listOfEnvs = envs['environments'] as List<dynamic>;
+      final url = listOfEnvs.first['baseUrl'];
 
       Dio dio = Dio();
       await dio.post(url + '/v1/auth/password-reset',
