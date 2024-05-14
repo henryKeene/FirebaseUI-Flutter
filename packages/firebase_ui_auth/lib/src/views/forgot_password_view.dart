@@ -2,6 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:firebase_ui_shared/firebase_ui_shared.dart';
 import 'package:flutter/material.dart' hide Title;
 
@@ -60,10 +65,21 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
     });
 
     try {
-      await auth.sendPasswordResetEmail(
-        email: email,
-        actionCodeSettings: widget.actionCodeSettings,
-      );
+      //TODO: Update this
+      FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.instance;
+
+      final json = remoteConfig.getString('environments');
+      final envs = jsonDecode(json) as Map<String, dynamic>;
+
+      final url = envs['baseUrl'];
+
+      Dio dio = Dio();
+      await dio.post(url + '/v1/auth/password-reset',
+          data: {'email': email, 'reset_password_continue_url': "string"});
+      // await auth.sendPasswordResetEmail(
+      //   email: email,
+      //   actionCodeSettings: widget.actionCodeSettings,
+      // );
 
       emailSent = true;
     } on fba.FirebaseAuthException catch (e) {

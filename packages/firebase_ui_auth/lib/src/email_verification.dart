@@ -102,6 +102,7 @@ class EmailVerificationController extends ValueNotifier<EmailVerificationState>
   ) async {
     value = EmailVerificationState.sending;
     try {
+      //TODO: Update this
       await user.sendEmailVerification(actionCodeSettings);
     } on Exception catch (e) {
       error = e;
