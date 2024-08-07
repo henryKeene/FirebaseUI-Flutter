@@ -118,11 +118,12 @@ class EmailVerificationController extends ValueNotifier<EmailVerificationState>
 
       final token = await user.getIdTokenResult(true);
 
-      final headeredUpDio = dio
+      final dioWithHeaders = dio
         ..options.headers['Authorization'] = 'Bearer ${token.token}'
-        ..options.headers['Accept-Language'] = 'en';
+        ..options.headers['Accept-Language'] = 'en'
+        ..options.headers['Accept'] = 'application/json';
 
-      await headeredUpDio.post(
+      await dioWithHeaders.post(
         url + '/v2/auth/email-verification',
       );
       // await user.sendEmailVerification(actionCodeSettings);
