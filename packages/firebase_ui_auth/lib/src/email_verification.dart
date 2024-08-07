@@ -116,7 +116,7 @@ class EmailVerificationController extends ValueNotifier<EmailVerificationState>
 
       Dio dio = Dio();
 
-      final token = await user.getIdTokenResult(true);
+      final token = await user.getIdTokenResult();
 
       final dioWithHeaders = dio
         ..options.headers['Authorization'] = 'Bearer ${token.token}'
