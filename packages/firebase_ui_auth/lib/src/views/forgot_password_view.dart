@@ -74,7 +74,8 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
       final url = listOfEnvs.first['baseUrl'];
 
       Dio dio = Dio();
-      await dio.post(url + '/v1/auth/password-reset', data: {'email': email});
+
+      await dio.post(url + '/v2/auth/password-reset', data: {'email': email});
       // await auth.sendPasswordResetEmail(
       //   email: email,
       //   actionCodeSettings: widget.actionCodeSettings,

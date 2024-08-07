@@ -115,8 +115,13 @@ class EmailVerificationController extends ValueNotifier<EmailVerificationState>
       final url = listOfEnvs.first['baseUrl'];
 
       Dio dio = Dio();
-      await dio.post(url + '/v1/auth/email-verification',
-          data: {'email': user.email});
+
+      final token = await user.getIdToken();
+
+      dio.options.headers['Authorization'] = 'Bearer $token';
+      await dio.post(
+        url + '/v2/auth/email-verification',
+      );
       // await user.sendEmailVerification(actionCodeSettings);
     } on Exception catch (e) {
       error = e;
