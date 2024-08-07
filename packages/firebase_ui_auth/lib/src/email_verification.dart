@@ -116,10 +116,13 @@ class EmailVerificationController extends ValueNotifier<EmailVerificationState>
 
       Dio dio = Dio();
 
-      final token = await user.getIdToken();
+      final token = await user.getIdTokenResult(true);
 
-      dio.options.headers['Authorization'] = 'Bearer $token';
-      await dio.post(
+      final headeredUpDio = dio
+        ..options.headers['Authorization'] = 'Bearer ${token.token}'
+        ..options.headers['Accept-Language'] = 'en';
+
+      await headeredUpDio.post(
         url + '/v2/auth/email-verification',
       );
       // await user.sendEmailVerification(actionCodeSettings);
